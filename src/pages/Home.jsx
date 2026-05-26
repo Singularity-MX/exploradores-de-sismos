@@ -111,10 +111,10 @@ const Home = () => {
                         >
                             <HeroCard
                                 image={hoja}
-                                title="Detectives del estrés vegetal"
-                                description="Taller práctico donde se analizan hojas de plantas mediante valores RGB para estimar su estado de salud, integrando conceptos de visión computacional, biología vegetal y análisis de datos."
+                                title="Exploradores de Sismos"
+                                description="Taller práctico donde convertirás tu celular en un sismógrafo utilizando sus sensores internos y descubrirás cómo la ciencia ciudadana ayuda a detectar temblores."
                                 meta={{
-                                    "📅 Fecha": "09 de mayo del 2026",
+                                    "📅 Fecha": "30 de mayo del 2026",
                                     "⏰ Hora": "12:00 PM - 13:30 PM",
                                     "📍 Lugar": "IMJU Parque Hidalgo",
                                     "🧑‍🔬 Edad": "+12 años",

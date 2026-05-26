@@ -9,7 +9,7 @@ import logo from "../assets/Logo.png";
 import letras from "../assets/Singularity.png";
 
 import SvgComponent from "../assets/textura.jsx";
-import HowItWorks from "../components/ui/section/InformationSection.jsx";
+import WikiModel from "../components/ui/section/InformationSection.jsx";
 
 /* ================= BACKGROUND ================= */
 const Background = () => (
@@ -125,7 +125,7 @@ const Information = () => {
                                 animate="show"
                                 exit={{ opacity: 0, y: 10 }}
                             >
-                                <HowItWorks />
+                                <WikiModel />
                             </motion.div>
                         </AnimatePresence>
                     </div>
