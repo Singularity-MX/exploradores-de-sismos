@@ -64,9 +64,9 @@ const Information = () => {
     const navigate = useNavigate();
 
     const items = [
-        { key: "", label: "Inicio" },
+        { key: "home", label: "Inicio" },
         { key: "information", label: "¿Cómo funciona?" },
-        { key: "scan", label: "Escáner" },
+        { key: "tool", label: "Sismógrafo" },
         { key: "about", label: "Sobre nosotros" },
     ];
 

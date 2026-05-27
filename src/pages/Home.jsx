@@ -11,7 +11,7 @@ import { usePageLoader } from "../hooks/usePageLoader";
 
 import logo from "../assets/Logo.png";
 import letras from "../assets/Singularity.png";
-import hoja from "../assets/imgs/ndvi.webp";
+import imagen from "../assets/imgs/sismo.jpg";
 import SvgComponent from "../assets/textura.jsx";
 
 /* =========================
@@ -48,9 +48,9 @@ const Home = () => {
     const loading = usePageLoader([]);
 
     const items = [
-        { key: "", label: "Inicio" },
+        { key: "home", label: "Inicio" },
         { key: "information", label: "¿Cómo funciona?" },
-        { key: "scan", label: "Escáner" },
+        { key: "tool", label: "Sismógrafo" },
         { key: "about", label: "Sobre nosotros" },
     ];
 
@@ -110,18 +110,18 @@ const Home = () => {
                             transition={{ duration: 0.6 }}
                         >
                             <HeroCard
-                                image={hoja}
+                                image={imagen}
                                 title="Exploradores de Sismos"
                                 description="Taller práctico donde convertirás tu celular en un sismógrafo utilizando sus sensores internos y descubrirás cómo la ciencia ciudadana ayuda a detectar temblores."
                                 meta={{
                                     "📅 Fecha": "30 de mayo del 2026",
-                                    "⏰ Hora": "12:00 PM - 13:30 PM",
+                                    "⏰ Hora": "12:30 PM - 14:00 PM",
                                     "📍 Lugar": "IMJU Parque Hidalgo",
                                     "🧑‍🔬 Edad": "+12 años",
                                     "👥 Cupo": "45 participantes",
                                 }}
                                 buttonText="Comenzar"
-                                onClick={() => navigate("/scan")}
+                                onClick={() => navigate("/tool")}
                             />
                         </motion.div>
                     )}

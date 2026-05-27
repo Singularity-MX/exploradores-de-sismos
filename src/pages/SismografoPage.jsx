@@ -1,12 +1,12 @@
 import React from "react";
 import { Layout } from "antd";
-import Navbar from "../components/layout/Navbar";
+import Navbar from "../components/layout/Navbar.jsx";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/Logo.png";
 import letras from "../assets/Singularity.png";
 
 import SvgComponent from "../assets/textura.jsx";
-import ScanCard from "../components/ui/Cards/ScanCard";
+import Sismografo from "../components/ui/Cards/SismografoCard.jsx";
 
 const Background = () => (
     <div
@@ -29,12 +29,12 @@ const Background = () => (
     </div>
 );
 
-const Scan = () => {
+const PageSismografo = () => {
     const navigate = useNavigate();
     const items = [
         { key: "home", label: "Inicio" },
         { key: "information", label: "¿Cómo funciona?" },
-        { key: "scan", label: "Escáner" },
+        { key: "tool", label: "Sismógrafo" },
         { key: "about", label: "Sobre nosotros" },
     ];
 
@@ -79,11 +79,11 @@ const Scan = () => {
                         padding: "16px 24px",
                     }}
                 >
-                    <ScanCard />
+                    <Sismografo />
                 </main>
             </div>
         </Layout>
     );
 };
 
-export default Scan;
+export default PageSismografo;

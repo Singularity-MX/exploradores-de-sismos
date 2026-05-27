@@ -48,9 +48,9 @@ const About = () => {
     const loading = usePageLoader([]);
 
     const items = [
-        { key: "", label: "Inicio" },
+        { key: "home", label: "Inicio" },
         { key: "information", label: "¿Cómo funciona?" },
-        { key: "scan", label: "Escáner" },
+        { key: "tool", label: "Sismógrafo" },
         { key: "about", label: "Sobre nosotros" },
     ];
 

@@ -6,7 +6,7 @@ const { Title, Text } = Typography;
 
 const MAX_POINTS = 100;
 
-const ScanCard = () => {
+const Sismografo = () => {
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [data, setData] = useState([]);
   const [eventDetected, setEventDetected] = useState(false);
@@ -171,4 +171,4 @@ const ScanCard = () => {
   );
 };
 
-export default ScanCard;
+export default Sismografo;
