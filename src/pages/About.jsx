@@ -50,7 +50,7 @@ const About = () => {
     const items = [
         { key: "", label: "Inicio" },
         { key: "information", label: "¿Cómo funciona?" },
-        { key: "scan", label: "Escáner" },
+        { key: "tool", label: "Sismómetro" },
         { key: "about", label: "Sobre nosotros" },
     ];
 

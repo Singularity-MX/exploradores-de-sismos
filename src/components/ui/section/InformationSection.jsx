@@ -1,11 +1,14 @@
 import React from "react";
 import { Card, Typography, Grid } from "antd";
 import { motion } from "framer-motion";
-import { BlockMath } from "react-katex";
-import absorbancia from "../../../assets/imgs/absorbancia.jpg";
-import arbol from "../../../assets/imgs/arbol.png";
 import katex from "katex";
 import { useEffect, useRef } from "react";
+
+// Sugerencias de imágenes para que agregues a tus assets:
+// 1. esquema_mems.jpg -> Un diagrama sencillo de cómo es un chip acelerómetro por dentro (resortes y masitas).
+// 2. grafica_ondas.png -> Una gráfica mostrando picos de actividad en 3 colores distintos (X, Y, Z).
+import esquemaMems from "../../../assets/imgs/arbol.png"; 
+import graficaOndas from "../../../assets/imgs/arbol.png";
 
 const MathBlock = ({ formula }) => {
   const ref = useRef(null);
@@ -65,41 +68,41 @@ const stepVariant = {
 };
 
 /* =========================
-   STEPS (SIN CAMBIOS)
+   STEPS (ADAPTADOS A SISMOS)
 ========================= */
 const steps = [
   {
     n: 1,
-    title: "Carga de imagen",
-    desc: "El usuario captura o importa una imagen de una hoja vegetal mediante cámara o archivo local.",
+    title: "Activación de sensores",
+    desc: "El usuario otorga permisos en el navegador para acceder a la API DeviceMotion, conectando la web con el hardware del dispositivo.",
   },
   {
     n: 2,
-    title: "Selección de modo de análisis",
+    title: "Filtrado de la gravedad",
     desc: (
       <>
-        Se define el tipo de muestreo:
+        Se calibra el sensor para ignorar la fuerza constante de la gravedad ($9.8 m/s^2$) y detectar solo:
         <div style={{ marginTop: 6 }}>
-          • Punto único: análisis localizado de alta sensibilidad.<br />
-          • Multipunto: estimación global mediante promedios espaciales.
+          • Aceleraciones dinámicas (golpes, saltos, vibraciones).<br />
+          • Cambios bruscos de posición.
         </div>
       </>
     ),
   },
   {
     n: 3,
-    title: "Interacción sobre la imagen",
-    desc: "El usuario selecciona regiones específicas de la hoja directamente en la interfaz visual.",
+    title: "Monitoreo triaxial",
+    desc: "Se registran los datos de aceleración en 3 dimensiones (ejes X, Y, Z) a una alta frecuencia de muestreo (milisegundos).",
   },
   {
     n: 4,
-    title: "Procesamiento de color",
-    desc: "Se calcula el promedio de color en la región seleccionada, filtrando ruido por iluminación y valores extremos.",
+    title: "Visualización en tiempo real",
+    desc: "Se trazan gráficas dinámicas de cada eje, permitiendo al usuario observar visualmente la intensidad y duración de la vibración mecánica.",
   },
   {
     n: 5,
-    title: "Generación del índice vegetal",
-    desc: "Se computa un índice basado en la relación entre los canales RGB normalizados como proxy de vigor vegetal.",
+    title: "Registro de Ciencia Ciudadana",
+    desc: "El sistema identifica picos anómalos. En una red real, estos metadatos se enviarían a un servidor central para triangular posibles sismos junto a otros usuarios.",
   },
 ];
 
@@ -121,7 +124,7 @@ const StepItem = ({ step }) => {
           width: 28,
           height: 28,
           borderRadius: "50%",
-          background: "#111",
+          background: "#111", // Puedes cambiar a un tono naranja/rojo si el branding lo requiere
           color: "#fff",
           fontSize: 13,
           display: "flex",
@@ -208,96 +211,75 @@ const WikiModel = () => {
       }}
     >
       {/* ================= INTRO ================= */}
-      <Section title="Monitoreo vegetal y teledetección">
+      <Section title="Sismología y Tecnología MEMS">
         <Paragraph style={textStyle}>
-          El monitoreo fisiológico de vegetación mediante análisis espectral permite estimar el estado de salud de una planta sin contacto físico, utilizando la interacción entre radiación electromagnética y pigmentos fotosintéticos.
+          Los sismógrafos tradicionales miden el movimiento del suelo usando una masa suspendida. Hoy en día, casi todos los teléfonos inteligentes contienen sensores microelectromecánicos (MEMS) que actúan como sismómetros miniatura de alta precisión.
         </Paragraph>
 
         <Card style={{ marginTop: 18, borderRadius: 12, background: "#fafafa" }}>
           <Text strong>Idea clave</Text>
           <Paragraph style={{ marginTop: 6, marginBottom: 0 }}>
-            La salud vegetal puede inferirse a partir de patrones de absorción y reflectancia de luz en distintas longitudes de onda.
+            Cualquier vibración mecánica o movimiento tectónico se traduce en cambios medibles de aceleración en el dispositivo, transformando tu celular en un instrumento científico.
           </Paragraph>
         </Card>
-
-
       </Section>
 
-      {/* ================= CLOROFILA ================= */}
-      <Section title="Clorofila y espectro de absorción">
+      {/* ================= ACELERÓMETRO ================= */}
+      <Section title="Anatomía del Movimiento">
         <Paragraph style={textStyle}>
-          La clorofila regula la absorción de energía lumínica necesaria para la fotosíntesis, con comportamiento espectral diferenciado.
+          El acelerómetro del celular registra fuerzas dinámicas a través de tres ejes ortogonales, permitiéndonos saber no solo qué tan fuerte es el movimiento, sino de dónde proviene.
         </Paragraph>
 
         <Card style={{ marginTop: 16, borderRadius: 12 }}>
-
-          <Text strong>Espectro funcional</Text>
+          <Text strong>Los ejes espaciales</Text>
           <motion.div variants={imageVariant} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <div style={{ marginTop: 24 }}>
-              <img src={absorbancia} alt="Absorción de luz por clorofila" style={{ width: "100%", borderRadius: 12 }} />
+              <img src={esquemaMems} alt="Ejes del acelerómetro" style={{ width: "100%", borderRadius: 12 }} />
             </div>
           </motion.div>
           <div style={{ marginTop: 10 }}>
-            <Text>• Clorofila A → máxima eficiencia en azul y rojo</Text><br />
-            <Text>• Clorofila B → amplía absorción en región azul-verde</Text>
+            <Text>• Eje X → Movimiento lateral (izquierda / derecha)</Text><br />
+            <Text>• Eje Y → Movimiento longitudinal (adelante / atrás)</Text><br />
+            <Text>• Eje Z → Movimiento vertical (arriba / abajo)</Text>
           </div>
         </Card>
 
         <Card style={{ marginTop: 14, borderRadius: 12, background: "#f7f7f7" }}>
           <Text>
-            La reflectancia en verde se incrementa debido a la menor absorción en esa banda, generando la percepción visual característica de las hojas.
+            Las ondas sísmicas de un temblor (como las ondas P y S) excitarán estos ejes de manera distinta dependiendo de la posición del teléfono y el origen del sismo.
           </Text>
         </Card>
       </Section>
 
-      {/* ================= NDVI ================= */}
-      <Section title="NDVI: índice de vegetación">
+      {/* ================= MATEMÁTICAS ================= */}
+      <Section title="Magnitud de Aceleración">
         <Paragraph style={textStyle}>
-          El NDVI es un índice espectral utilizado en teledetección para estimar biomasa y vigor vegetal a partir de bandas roja e infrarroja cercana.
+          Para determinar la intensidad total del movimiento, independientemente de la posición del celular, se calcula la magnitud del vector de aceleración tridimensional.
         </Paragraph>
 
         <div style={{ marginTop: 30 }}>
-         <MathBlock formula={"NDVI = \\frac{NIR - RED}{NIR + RED}"} />
+          <MathBlock formula={"a_{total} = \\sqrt{a_x^2 + a_y^2 + a_z^2}"} />
         </div>
 
         <Card style={{ marginTop: 18, borderRadius: 12 }}>
           <Text strong>Interpretación física</Text>
           <div style={{ marginTop: 10 }}>
-            <Text>• Valores altos → vegetación sana y activa</Text><br />
-            <Text>• Valores bajos → estrés hídrico o degradación</Text>
+            <Text>• Valores cercanos a 0 (sin gravedad) → Reposo absoluto</Text><br />
+            <Text>• Picos súbitos → Impactos, vibraciones o actividad sísmica</Text>
           </div>
         </Card>
 
         <motion.div variants={imageVariant} initial="hidden" whileInView="show" viewport={{ once: true }}>
           <div style={{ marginTop: 24 }}>
-            <img src={arbol} alt="NDVI conceptual" style={{ width: "100%", borderRadius: 12 }} />
+            <img src={graficaOndas} alt="Gráfica de sismógrafo" style={{ width: "100%", borderRadius: 12 }} />
           </div>
         </motion.div>
       </Section>
 
-      {/* ================= MODEL ================= */}
-      <Section title="Modelo basado en RGB">
-        <Paragraph style={textStyle}>
-          Debido a la ausencia de sensores multiespectrales, se emplea una aproximación basada en espacio RGB como estimador indirecto de actividad fotosintética.
-        </Paragraph>
-
-        <div style={{ marginTop: 30 }}>
-          <MathBlock formula={"ICV \\; \\approx \\; ExG = \\frac{2G - R - B}{R + G + B}"} />
-        </div>
-
-        <Card style={{ marginTop: 18, borderRadius: 12 }}>
-          <Text strong>Significado del modelo</Text>
-          <div style={{ marginTop: 10 }}>
-            <Text>• R, G, B → componentes del color digital</Text><br />
-            <Text>• ExG → énfasis del canal verde normalizado</Text>
-          </div>
-        </Card>
-      </Section>
-
       {/* ================= STEPPER ANIMADO ================= */}
-      <Section title="Uso del sistema de análisis">
+      <Section title="Uso de la Herramienta">
         <Paragraph style={textStyle}>
-          El sistema opera como un flujo interactivo de adquisición y análisis de color sobre imágenes de vegetación.
+          El sistema opera como un flujo interactivo de adquisición y análisis de vibraciones mecánicas.
         </Paragraph>
 
         <motion.div
@@ -319,19 +301,17 @@ const WikiModel = () => {
       </Section>
 
       {/* ================= Nota tecnica ================= */}
-      <Section title="Consideraciones">
-
+      <Section title="Consideraciones de Ciencia Ciudadana">
         <Card style={{ marginTop: 18, borderRadius: 12 }}>
-          <Text strong>Nota técnica</Text>
+          <Text strong>El poder de la red</Text>
           <Paragraph style={{ ...textStyle, marginTop: 8 }}>
-            El modo multipunto reduce la varianza espacial del color, estabilizando la estimación del estado general de la hoja.
-            El modo de punto único es más sensible a variaciones locales.
+            Un solo celular puede registrar vibraciones falsas (alguien moviendo la mesa). Sin embargo, si cientos de celulares en una misma zona reportan una aceleración inusual al mismo tiempo, podemos confirmar que se trata de un evento sísmico real.
           </Paragraph>
         </Card>
         <Card style={{ marginTop: 18, borderRadius: 12 }}>
           <div style={{ marginTop: 14 }}>
             <Text type="secondary" style={{ fontSize: 12 }}>
-              Este sistema representa una estimación visual basada en RGB. No sustituye análisis espectrales ni diagnóstico agronómico profesional.
+              Nota: Este sistema es una demostración educativa de los principios de sismología y ciencia ciudadana. No sustituye a las alertas sísmicas oficiales ni a los equipos de protección civil.
             </Text>
           </div>
         </Card>

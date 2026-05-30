@@ -10,7 +10,7 @@ const root = document.getElementById("root");
 import Example from './pages/About';
 import Home from './pages/Home';
 import Information from './pages/Information';
-import Scan from './pages/Scan';
+import PageSismografo from './pages/SismografoPage';
 import About from './pages/About';
 
 ReactDOM.createRoot(root).render(
@@ -18,7 +18,7 @@ ReactDOM.createRoot(root).render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/information" element={<Information />} />
-      <Route path="/scan" element={<Scan />} />
+      <Route path="/tool" element={<PageSismografo />} />
       <Route path="/about" element={<About />} />
     </Routes>
   </BrowserRouter>,
