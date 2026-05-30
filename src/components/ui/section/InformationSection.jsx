@@ -7,8 +7,8 @@ import { useEffect, useRef } from "react";
 // Sugerencias de imágenes para que agregues a tus assets:
 // 1. esquema_mems.jpg -> Un diagrama sencillo de cómo es un chip acelerómetro por dentro (resortes y masitas).
 // 2. grafica_ondas.png -> Una gráfica mostrando picos de actividad en 3 colores distintos (X, Y, Z).
-import esquemaMems from "../../../assets/imgs/arbol.png"; 
-import graficaOndas from "../../../assets/imgs/arbol.png";
+import esquemaMems from "../../../assets/imgs/acelerometro.png"; 
+import graficaOndas from "../../../assets/imgs/lineas.png";
 
 const MathBlock = ({ formula }) => {
   const ref = useRef(null);
@@ -98,12 +98,7 @@ const steps = [
     n: 4,
     title: "Visualización en tiempo real",
     desc: "Se trazan gráficas dinámicas de cada eje, permitiendo al usuario observar visualmente la intensidad y duración de la vibración mecánica.",
-  },
-  {
-    n: 5,
-    title: "Registro de Ciencia Ciudadana",
-    desc: "El sistema identifica picos anómalos. En una red real, estos metadatos se enviarían a un servidor central para triangular posibles sismos junto a otros usuarios.",
-  },
+  }
 ];
 
 /* =========================
