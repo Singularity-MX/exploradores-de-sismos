@@ -32,14 +32,13 @@ const Background = () => (
 const PageSismografo = () => {
     const navigate = useNavigate();
     const items = [
-        { key: "home", label: "Inicio" },
+        { key: "", label: "Inicio" },
         { key: "information", label: "¿Cómo funciona?" },
-        { key: "tool", label: "Sismógrafo" },
+        { key: "tool", label: "Sismómetro" },
         { key: "about", label: "Sobre nosotros" },
     ];
 
     const handleNavigate = (key) => {
-        //console.log("navigate to:", key);
         navigate(`/${key === "home" ? "" : key}`);
     };
 
@@ -74,12 +73,23 @@ const PageSismografo = () => {
                     style={{
                         height: "calc(100dvh - 64px)",
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        padding: "16px 24px",
+                        alignItems: "center", // Centra verticalmente
+                        justifyContent: "center", // Centra horizontalmente
+                        padding: "16px", // Reduje un poco el padding para ganar espacio en celular
+                        width: "100%",
                     }}
                 >
-                    <Sismografo />
+                    {/* ENVOLTORIO PARA HACER MÁS ANCHA LA TARJETA */}
+                    <div 
+                        style={{ 
+                            width: "100%", 
+                            maxWidth: "1200px", // Puedes subirlo a 1400px si lo quieres aún más ancho en web
+                            display: "flex",
+                            justifyContent: "center"
+                        }}
+                    >
+                        <Sismografo />
+                    </div>
                 </main>
             </div>
         </Layout>
