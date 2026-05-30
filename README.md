@@ -1,10 +1,10 @@
-# Detectives del Estrés Vegetal v1.0.0
+# Exploradores de Sismos v1.0.0
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Status](https://img.shields.io/badge/status-active-success)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-GPL-green)
 ![Maintained](https://img.shields.io/badge/maintained-yes-brightgreen)
 
-<img src="./src//documents/branding/portada.png" alt="Portada" width="100%"/>
+<img src="./src//documents/branding/portadaRepo.png" alt="Portada" width="100%"/>
 
 ## Índice
 
